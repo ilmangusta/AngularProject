@@ -2,8 +2,8 @@
   <h2>{{ task.title}}</h2>
   <time>{{ task.dueDate }}</time>
   <p>{{ task.summary}}</p>
-  <p class="action">
-    <button>COMPLETE TASK</button>
+  <p class="actions">
+    <button (click) = "onCompleteTask()">Complete Task</button>
   </p>
 </article>
 
