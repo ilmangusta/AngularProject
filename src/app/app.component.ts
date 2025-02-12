@@ -1,15 +1,12 @@
-import {HeaderComponent} from './header/header.component';
-import {UserComponent} from './user/user.component';
 import {Component} from '@angular/core';
-import {TasksComponent} from './tasks/tasks.component';
 import {DUMMY_USERS} from './user/dummy-users';
 
-
-
+//// !!! IMPORTANTE !!! da angular 19 le componenti sono standalone di defualt
+// perche se ometto standalone: false -> sarà automaticamente true
 @Component({
+  //non sono necessari gl import se utilizzo i moduli (AppModule)
+  standalone: false,
   selector: 'app-root',
-  standalone: true,
-  imports: [UserComponent, HeaderComponent, TasksComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
