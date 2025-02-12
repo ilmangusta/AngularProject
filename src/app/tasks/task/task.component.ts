@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input, inject} from '@angular/core';
 import {type Task} from './task.model';
+import {TasksService} from '../tasks.service';
 
 //interface Task{
 //  id: string;
@@ -11,16 +12,15 @@ import {type Task} from './task.model';
 
 @Component({
   selector: 'app-task',
-  imports: [],
   templateUrl: './task.component.html',
-  standalone: true,
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
   @Input({required: true}) task!: Task;
-  @Output() complete = new EventEmitter<string>();
+  private taskService = inject(TasksService);
 
   onCompleteTask(){
-    this.complete.emit(this.task.id);
+    //this.complete.emit(this.task.id);
+    this.taskService.removeTask(this.task.id);
   }
 }

@@ -1,41 +1,33 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {type NewTask} from '../task/task.model';
-
+import {Component, EventEmitter, Output, inject, Input} from '@angular/core';
+import {TasksService} from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
-  imports: [
-    FormsModule
-  ],
   templateUrl: './new-task.component.html',
-  standalone: true,
   styleUrl: './new-task.component.css'
 })
 export class NewTaskComponent {
+  //injection without using costructor
+  private tastService = inject(TasksService)
 
-  @Output() cancel = new EventEmitter<void>();
-  @Output() addTask = new EventEmitter<NewTask>();
+  @Input({required:true}) userId!: string;
+  @Output() close = new EventEmitter<void>();
   enteredTitle: string = "";
   enteredSummary: string= "";
   enteredDueDate: string="";
 
   onCloseAddTask(){
     //aggiorno la lista con le task che è stata precedentemente importata
-    this.cancel.emit()
+    this.close.emit()
   }
-
-
 
   onCreateTask(){
     console.log(this.enteredTitle,this.enteredSummary,this.enteredDueDate)
-    this.addTask.emit({
+    this.tastService.addNewTask({
       title: this.enteredTitle,
       summary: this.enteredSummary,
       date: this.enteredDueDate,
-    })
-
+    }, this.userId)
+    this.close.emit()
   }
-
-
 }

@@ -21,8 +21,6 @@ import {type User} from './user.mode';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  standalone: true,
-  imports: [],
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
@@ -45,7 +43,7 @@ export class UserComponent {
   //defined like a properties, NOT A METHOD ( with () )
   //method 1
   get imagePath(){
-    console.log( 'method1: assets/users/' + this.user.avatar);
+    //console.log( 'method1: assets/users/' + this.user.avatar);
     return 'assets/users/' + this.user.avatar;
   }
 
@@ -58,7 +56,7 @@ export class UserComponent {
 
   onSelectUser(){
     //change the user avatar
-    console.log("clicked here - avatar changed")
+    console.log("clicked here - pointer on user: " + this.user.name)
     //this.variableUser = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)]
     //output value
     this.select.emit(this.user.id);
