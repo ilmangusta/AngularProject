@@ -11,6 +11,7 @@ import {TasksService} from '../tasks.service';
 //}
 
 @Component({
+  standalone: false,
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'

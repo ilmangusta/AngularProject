@@ -1,8 +1,11 @@
 import {Component} from '@angular/core';
 import {DUMMY_USERS} from './user/dummy-users';
 
+//// !!! IMPORTANTE !!! da angular 19 le componenti sono standalone di defualt
+// perche se ometto standalone: false -> sarà automaticamente true
 @Component({
   //non sono necessari gl import se utilizzo i moduli (AppModule)
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

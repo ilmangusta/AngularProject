@@ -1,7 +1,9 @@
 import {Component, EventEmitter, Output, inject, Input} from '@angular/core';
 import {TasksService} from '../tasks.service';
 
+
 @Component({
+  standalone: false,
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'

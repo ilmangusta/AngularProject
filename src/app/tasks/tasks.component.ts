@@ -2,11 +2,13 @@ import {Component, inject, Input} from '@angular/core';
 import {TasksService} from './tasks.service';
 
 @Component({
+  standalone: false,
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
+
   //non metto required nel ingresso poiche puo essere null
   // ? -> significa che puo non essere inizializzato
   //@Input() name?: string;

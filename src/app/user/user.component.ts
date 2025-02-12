@@ -1,5 +1,5 @@
 import {Component,Output, EventEmitter, computed, Input, signal} from '@angular/core';
-import {type User} from './user.mode';
+import {type User} from './user.model';
 
 //const randomNumber = Math.floor(Math.random() * DUMMY_USERS.length)
 
@@ -19,6 +19,7 @@ import {type User} from './user.mode';
 //}
 
 @Component({
+  standalone: false,
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
